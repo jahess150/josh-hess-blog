@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>My Blog</title>
+        <meta name="author" content="Josh Hess" />
+        <meta
+            name="description"
+            content="Personal blogging site for Josh Hess"
+        />
+        <meta
+            name="keywords"
+            content="blog, mathematics, math, data, analysis, artificial intelligence"
+        />
+        <meta name="robots" content="index, follow" />
+
+        <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="/static/styles.css" />
+    </head>
+    <body>
+        <h1>Recent Blog Posts</h1>
+        <ul>
+            {% for post in posts %}
+            <li>
+                <a href="{{ url_for('post', post_name=post[:-3]) }}"
+                    >{{ post[:-3].replace('-', ' ').title() }}</a
+                >
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
