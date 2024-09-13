@@ -30,7 +30,7 @@ def post(post_name):
         content = markdown.markdown(content)
 
         # Render the 'post.html' template
-        return render_template('post.html' content = content, post_name = post_name)
+        return render_template('post.html', content = content, post_name = post_name)
     else:
         # If the file doesn't exist, return a 404 error
         abort(404)
